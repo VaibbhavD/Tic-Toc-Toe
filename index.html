@@ -1,37 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic-Toc</title>
-    <link rel="stylesheet" href="./index.css">
-</head>
-<body class="bg-slate-800">
-    <div class="w-1/4 h-1/4 absolute top-20 left-19 text-stone-100 text-xl flex font-bold justify-center">
-        <div class="p-4 mx-4">Now Playing  -</div> <span class="px-2 absolute top-3 ml-44 content-center text-3xl" id="now"></span>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body class="bg-slate-800" id="body">
+    <div
+      class="w-1/4 h-1/4 absolute top-20 left-19 text-stone-100 text-xl flex font-bold justify-center"
+    >
+      <div class="p-4 mx-4 text-black -">Now Playing -</div>
+      <span
+        class="px-2 absolute top-3 ml-44 content-center text-3xl text-black underline"
+        id="now"
+      ></span>
+    </div>
+    <div
+      class="h-screen w-screen flex flex-col justify-center items-center font-mono text-stone-100"
+    >
+      <!-- <h1>Tic Toc Toe</h1> -->
+      <div class="w-1/3 h-1/2 mt-30 cursor-pointer">
+        <div class="w-full h-1/3 bg-slate-500 flex text-8xl">
+          <div
+            class="w-1/3 h-full border-r-8 border-gray-800 flex justify-center items-center"
+            id="a1"
+            onclick="tab(this.id)"
+          ></div>
+          <!-- <p>Vaibhahv</p> -->
+          <div
+            class="w-1/3 h-full border-r-8 border-gray-800 flex justify-center items-center"
+            id="a2"
+            onclick="tab(this.id)"
+          ></div>
+          <div
+            class="w-1/3 h-full border-gray-800 flex justify-center items-center"
+            id="a3"
+            onclick="tab(this.id)"
+          ></div>
+        </div>
+        <div class="w-full h-1/3 bg-slate-500 flex text-8xl">
+          <div
+            class="w-1/3 h-full border-r-8 border-t-8 border-gray-800 flex justify-center items-center"
+            id="b1"
+            onclick="tab(this.id)"
+          ></div>
+          <div
+            class="w-1/3 h-full border-r-8 border-t-8 border-gray-800 flex justify-center items-center"
+            id="b2"
+            onclick="tab(this.id)"
+          ></div>
+          <div
+            class="w-1/3 h-full border-t-8 border-gray-800 flex justify-center items-center"
+            id="b3"
+            onclick="tab(this.id)"
+          ></div>
+        </div>
+        <div class="w-full h-1/3 bg-slate-500 flex text-8xl">
+          <div
+            class="w-1/3 h-full border-r-8 border-t-8 border-gray-800 flex justify-center items-center"
+            id="c1"
+            onclick="tab(this.id)"
+          ></div>
+          <div
+            class="w-1/3 h-full border-r-8 border-t-8 border-gray-800 flex justify-center items-center"
+            id="c2"
+            onclick="tab(this.id)"
+          ></div>
+          <div
+            class="w-1/3 h-full border-t-8 border-gray-800 flex justify-center items-center"
+            id="c3"
+            onclick="tab(this.id)"
+          ></div>
+        </div>
+      </div>
+      <button
+        type="reset"
+        class="bg-red-600 border-2 border-black hover:border-white active:text-black active:bg-stone-100 active:border-black p-3 px-10 m-12 text-lg text-white rounded-lg font-semibold"
+        onclick="reset(event)"
+      >
+        Reset
+      </button>
     </div>
 
-    <div class="h-screen w-screen flex flex-col justify-center items-center font-mono text-stone-100 ">
-           <div class="w-1/3 h-1/2 mt-30 cursor-pointer">
-              <div class="w-full h-1/3 bg-slate-500 flex text-8xl ">
-                   <div class=" w-1/3 h-full border-r-8 border-gray-800 flex justify-center items-center" id="a1" onclick="tab(this.id)"></div>
-                   <div class=" w-1/3 h-full border-r-8 border-gray-800 flex justify-center items-center" id="a2" onclick="tab(this.id)"></div>
-                   <div class="w-1/3 h-full  border-gray-800 flex justify-center items-center" id="a3" onclick="tab(this.id)"></div>
-              </div>
-              <div class="w-full h-1/3 bg-slate-500 flex text-8xl">
-                  <div class=" w-1/3 h-full border-r-8 border-t-8 border-gray-800 flex justify-center items-center" id="b1" onclick="tab(this.id)"></div>
-                  <div class=" w-1/3 h-full border-r-8 border-t-8 border-gray-800 flex justify-center items-center" id="b2" onclick="tab(this.id)"></div>
-                  <div class="w-1/3 h-full border-t-8 border-gray-800 flex justify-center items-center" id="b3" onclick="tab(this.id)"></div>
-              </div>
-              <div class="w-full h-1/3 bg-slate-500 flex text-8xl">
-                  <div class=" w-1/3 h-full border-r-8 border-t-8 border-gray-800 flex justify-center items-center" id="c1" onclick="tab(this.id)"></div>
-                  <div class=" w-1/3 h-full border-r-8 border-t-8 border-gray-800 flex justify-center items-center" id="c2" onclick="tab(this.id)"></div>
-                  <div class="w-1/3 h-full border-t-8 border-gray-800 flex justify-center items-center" id="c3" onclick="tab(this.id)"></div>
-              </div>
-           </div>
-        <button type="reset" class="bg-red-600 border-2 border-black hover:border-white  active:text-black active:bg-stone-100 active:border-black p-3 px-10 m-12 text-lg text-white rounded-lg font-semibold" onclick="reset(event)">Reset</button>
-    </div>
-        
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
